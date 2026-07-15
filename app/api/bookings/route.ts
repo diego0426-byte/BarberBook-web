@@ -1,9 +1,14 @@
+import type { Session } from "next-auth";
 import { NextResponse } from "next/server";
 import { auth } from "../../../lib/auth";
 import { google } from "googleapis";
 
+type SessionWithAccessToken = Session & {
+  accessToken?: string;
+};
+
 export async function POST(request: Request) {
-  const session = await auth();
+  const session = (await auth()) as SessionWithAccessToken | null;
 
   if (!session?.accessToken) {
     return NextResponse.json({ error: "Authentication required" }, { status: 401 });
