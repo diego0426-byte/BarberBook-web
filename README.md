@@ -1,4 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Barberbook Web
+
+## Integración con Google Calendar
+
+1. Copia el archivo .env.local.example a .env.local y completa tus credenciales de Google.
+2. Crea un proyecto en Google Cloud Console y habilita la API de Google Calendar.
+3. Añade la URI de redirección de NextAuth: http://localhost:3000/api/auth/callback/google
+4. Inicia el proyecto con npm run dev.
+
+### Variables de entorno requeridas
+
+- GOOGLE_CLIENT_ID
+- GOOGLE_CLIENT_SECRET
+- NEXTAUTH_SECRET
+- NEXTAUTH_URL
+
+### Qué se implementó
+
+- Autenticación con NextAuth y Google OAuth.
+- Ruta de autenticación en /api/auth/[...nextauth].
+- Endpoint para crear eventos en Google Calendar desde la reserva.
+- Endpoint para consultar disponibilidad del calendario y evitar duplicados.
 
 ## Getting Started
 
